@@ -43,6 +43,7 @@ namespace UsersIdentity.Controllers
 
         public async Task<ActionResult> Edit(string id)
         {
+            var role = await RoleManager.FindByIdAsync(id);
             return View();
         }
 
@@ -63,7 +64,7 @@ namespace UsersIdentity.Controllers
             }
             else
             {
-                return View("Error", new string[] { "Role Not Found" });
+                return View("Error", new string[] { "Role Not   Found" });
             }
         }
 
