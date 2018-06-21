@@ -9,6 +9,7 @@ using UsersIdentity.Models;
 
 namespace UsersIdentity.Controllers
 {
+    [Authorize(Roles = "Administrators")]
     public class AdminController : Controller
     {
         // GET: Admin

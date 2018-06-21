@@ -26,6 +26,11 @@ namespace UsersIdentity.Controllers
             {
             }
 
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                return View("Error", new string[] { "Access Denied" });
+            }
+
             ViewBag.returnUrl = returnUrl;
             return View();
         }
@@ -55,6 +60,12 @@ namespace UsersIdentity.Controllers
 
             ViewBag.returnUrl = returnUrl;
             return View(details);
+        }
+
+        public ActionResult Logout()
+        {
+            AuthManager.SignOut();
+            return RedirectToAction("Index", "Home");
         }
 
         private IAuthenticationManager AuthManager => HttpContext.GetOwinContext().Authentication;

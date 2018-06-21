@@ -192,6 +192,8 @@
     <Content Include="Views\RoleAdmin\Index.cshtml" />
     <Content Include="Views\RoleAdmin\Create.cshtml" />
     <Content Include="Views\RoleAdmin\Edit.cshtml" />
+    <Content Include="Views\Home\UserProps.cshtml" />
+    <Content Include="Views\Claims\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -199,6 +201,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ClaimsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Global.asax.cs">
@@ -210,6 +213,19 @@
     <Compile Include="Infrastructure\CustomPasswordValidator.cs" />
     <Compile Include="Infrastructure\CustomUserValidator.cs" />
     <Compile Include="Infrastructure\IdentityHelper.cs" />
+    <Compile Include="Migrations\201806210151591_InitialCreate.cs" />
+    <Compile Include="Migrations\201806210151591_InitialCreate.Designer.cs">
+      <DependentUpon>201806210151591_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806210209204_CityProperty.cs" />
+    <Compile Include="Migrations\201806210209204_CityProperty.Designer.cs">
+      <DependentUpon>201806210209204_CityProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806210230506_addcountry.cs" />
+    <Compile Include="Migrations\201806210230506_addcountry.Designer.cs">
+      <DependentUpon>201806210230506_addcountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\UserCreateViewModel.cs" />
@@ -236,6 +252,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201806210151591_InitialCreate.resx">
+      <DependentUpon>201806210151591_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806210209204_CityProperty.resx">
+      <DependentUpon>201806210209204_CityProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806210230506_addcountry.resx">
+      <DependentUpon>201806210230506_addcountry.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
