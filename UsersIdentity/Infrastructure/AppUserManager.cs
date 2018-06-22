@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -20,15 +16,16 @@ namespace UsersIdentity.Infrastructure
             IOwinContext context)
         {
             var db = context.Get<AppIdentityDbContext>();
-            var manager = new AppUserManager(new UserStore<AppUser>(db));
-
-            manager.PasswordValidator = new CustomPasswordValidator
+            var manager = new AppUserManager(new UserStore<AppUser>(db))
             {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = false,
-                RequireDigit = false,
-                RequireLowercase = true,
-                RequireUppercase = true
+                PasswordValidator = new CustomPasswordValidator
+                {
+                    RequiredLength = 6,
+                    RequireNonLetterOrDigit = false,
+                    RequireDigit = false,
+                    RequireLowercase = true,
+                    RequireUppercase = true
+                }
             };
 
             manager.UserValidator = new CustomUserValidator(manager)
